@@ -20,12 +20,13 @@ export default function Contact() {
     setIsSending(true);
 
     // 2. إرسال الإيميل
-    emailjs.sendForm(
-      'service_2bsk90c',   // بدلو بـ Service ID من EmailJS
-      'template_4dq1eeg',  // بدلو بـ Template ID من EmailJS
-      form.current!,
-      'vDWoF4NeLnJ0Ln9-5'    // بدلو بـ Public Key من EmailJS
-    )
+    // بلاصة الكود القديم، استعمل هاد الطريقة:
+emailjs.sendForm(
+  import.meta.env.VITE_EMAILJS_SERVICE_ID,   
+  import.meta.env.VITE_EMAILJS_TEMPLATE_ID,  
+  form.current!,
+  import.meta.env.VITE_EMAILJS_PUBLIC_KEY    
+)
     .then((result) => {
         alert("Message sent successfully! ✅");
         setFormData({ name: '', email: '', message: '' }); // مسح الفورم
